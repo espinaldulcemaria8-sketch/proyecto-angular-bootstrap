@@ -1,0 +1,52 @@
+<div class="card shadow-sm">
+  <div class="card-header bg-dark text-white">
+    <h2 class="h5 mb-0">Agregar producto</h2>
+  </div>
+
+  <div class="card-body">
+    <form (ngSubmit)="agregarProducto(nombreControl.value, descripcionControl.value)">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          #nombreControl
+          id="nombre"
+          type="text"
+          class="form-control"
+          placeholder="Escribe el nombre"
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <input
+          #descripcionControl
+          id="descripcion"
+          type="text"
+          class="form-control"
+          placeholder="Escribe una descripción"
+          required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Agregar producto
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="card shadow-sm mt-4">
+  <div class="card-header">
+    <h2 class="h5 mb-0">Productos registrados</h2>
+  </div>
+
+  <div class="card-body">
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let producto of productos">
+        <h3 class="h6 mb-1">{{ producto.nombre }}</h3>
+        <p class="mb-0 text-secondary">{{ producto.descripcion }}</p>
+      </li>
+    </ul>
+  </div>
+</div>
